@@ -11,8 +11,9 @@ $('#reporte').on('submit', (ev) => {
         'LINKEDIN': $('#linkedin').val(),
         'FB': $('#facebook').val(),
         'IG': $('#instagram').val(),
-        'TIKTOK': $('#twitter').val(),
-        'TWITTER': $('#tiktok').val()
+        'TIKTOK': $('#tiktok').val(),
+        'TIKTOK2': $('#tiktok2').val(),
+        'TWITTER': $('#twitter').val()
     }
 
     const url = 'https://tinyurl.com/api-create.php?url=';
