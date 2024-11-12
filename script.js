@@ -24,8 +24,7 @@ $('#formulario').on('submit', (ev) => {
             reporte += `\n${final}`;
 
             navigator.clipboard.writeText(reporte);
+            alert('Reporte copiado al portapapeles.');
         })
         .catch(error => console.error('An error occurred:', error));
-
-    alert('Reporte copiado al portapapeles.');
 });
