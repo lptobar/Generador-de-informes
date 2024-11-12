@@ -7,39 +7,43 @@
 
     <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="style.css">
-    <title>Generar reportes</title>
+    <title>Generador de reportes</title>
 </head>
 
 <body>
-    <main>
-        <form method="post" id="reporte">
-            <label for="nombre">Su nombre:</label>
-            <input type="text" name="nombre" id="nombre" required>
 
-            <label for="noticia">Nombre de la noticia:</label>
-            <input type="text" name="noticia" id="noticia" required>
+    <main>
+        <form method="post" autocomplete="false" id="formulario">
+            <label>Nombre:</label>
+            <input type="text" name="nombre" id="nombre">
+
+            <label>Titulo de la noticia:</label>
+            <input type="text" name="noticia" id="noticia">
+
+            <label>Noticia Contraplano:</label>
+            <input type="text" name="contraplano" id="contraplano">
 
             <section>
-                <label for="">LINK DE YOUTUBE:</label>
-                <input type="text" name="youtube" id="youtube" required>
-                
-                <label for="">LINK DE LINKEDIN:</label>
-                <input type="text" name="linkedin" id="linkedin" required>
+                <label>Youtube:</label>
+                <input type="text" name="YT" id="YT" placeholder="https://youtube.com/">
 
-                <label for="">LINK DE FACEBOOK:</label>
-                <input type="text" name="facebook" id="facebook" required>
+                <label>Linkedin:</label>
+                <input type="text" name="LINKEDIN" id="LINKEDIN" placeholder="https://linkedin.com/">
 
-                <label for="">LINK DE INSTAGRAM:</label>
-                <input type="text" name="instagram" id="instagram" required>
+                <label>Facebook:</label>
+                <input type="text" name="FB" id="FB" placeholder="https://facebook.com/">
 
-                <label for="">LINK DE TIKTOK:</label>
-                <input type="text" name="tiktok" id="tiktok" required>
+                <label>Instagram:</label>
+                <input type="text" name="IG" id="IG" placeholder="https://instagram.com/">
 
-                <label for="">LINK DE TIKTOK 2:</label>
-                <input type="text" name="tiktok2" id="tiktok2" required>
-                
-                <label for="">LINK DE TWITTER:</label>
-                <input type="text" name="twitter" id="twitter" required>
+                <label>Tiktok:</label>
+                <input type="text" name="TIKTOK" id="TIKTOK" placeholder="https://tiktok.com/">
+
+                <label>Tiktok 2:</label>
+                <input type="text" name="TIKTOK2" id="TIKTOK2" placeholder="https://tiktok.com/">
+
+                <label>Link Twitter:</label>
+                <input type="text" name="TWITTER" id="TWITTER" placeholder="https://x.com/">
             </section>
 
             <button type="submit">Generar reporte</button>

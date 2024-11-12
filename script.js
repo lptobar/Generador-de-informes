@@ -1,36 +1,31 @@
-$('#reporte').on('submit', (ev) => {
+$('#formulario').on('submit', (ev) => {
     ev.preventDefault();
 
     const nombre = $('#nombre').val();
     const noticia = $('#noticia').val();
+    const contraplano = $('#contraplano').val();
 
-    localStorage.setItem('nombre', nombre);
-    
-    const options = {
-        'YT': $('#youtube').val(),
-        'LINKEDIN': $('#linkedin').val(),
-        'FB': $('#facebook').val(),
-        'IG': $('#instagram').val(),
-        'TIKTOK': $('#tiktok').val(),
-        'TIKTOK2': $('#tiktok2').val(),
-        'TWITTER': $('#twitter').val()
+    const links = {
+        'YT': $('#YT').val(),
+        'LINKEDIN': $('#LINKEDIN').val(),
+        'FB': $('#FB').val(),
+        'IG': $('#IG').val(),
+        'TIKTOK': $('#TIKTOK').val(),
+        'TIKTOK2': $('#TIKTOK2').val(),
+        'TWITTER': $('#TWITTER').val()
     }
 
     const url = 'https://tinyurl.com/api-create.php?url=';
-    let format = '';
+    let reporte = `Reporte ${new Date().toLocaleDateString()}\n${nombre}\nNoticia: ${noticia}\n\n${contraplano}`;
 
-    const promises = Object.entries(options).map(([option, value]) => {
-        return $.get(`${url}${value}`).then((data) => {
-            return `${option}: ${data}\n`;
-        });
-    });
+    Promise.all(Object.entries(links).map(([key, value]) => $.get(`${url}${value}`).then(data => `${key}: ${data}`)))
+        .then(results => {
+            const final = results.join('\n');
+            reporte += `\n${final}`;
 
-    Promise.all(promises).then((results) => {
-        format = results.join('');
-        
-        const reporte = `Reporte ${new Date().toLocaleDateString('es-ES', { day: '2-digit', month: '2-digit', year: 'numeric' }).replace(/\//g, '/')}\n${nombre}\n\nNoticia: ${noticia}`;
-        navigator.clipboard.writeText(`${reporte}\n${format}`);
+            navigator.clipboard.writeText(reporte);
+        })
+        .catch(error => console.error('An error occurred:', error));
 
-        alert('Reporte copiado al portapapeles.');
-    });
+    alert('Reporte copiado al portapapeles.');
 });
